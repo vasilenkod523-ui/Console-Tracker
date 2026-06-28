@@ -1,11 +1,24 @@
-﻿namespace Console_Tracker
+﻿using Console_Tracker.Models;
+
+namespace Console_Tracker
 {
     internal class Program
     {
-        // This is the main entry point for the application.
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            var config = new TrackerConfiguration();
+
+            config.Applications.Add(new TrackedApplication
+            {
+                DisplayName = "Google Chrome",
+                ProcessName = "chrome",
+                IsEnabled = true
+            });
+
+            foreach (var app in config.Applications)
+            {
+                Console.WriteLine($"{app.DisplayName} | {app.ProcessName} | {app.IsEnabled}");
+            }
         }
     }
 }
