@@ -23,6 +23,9 @@ namespace Console_Tracker
             {
                 Console.WriteLine($"{app.DisplayName} | {app.ProcessName} | {app.IsEnabled}");
             }
+
+            
+            ProcessHelper.GetProcessByName("");
         }
     }
 }

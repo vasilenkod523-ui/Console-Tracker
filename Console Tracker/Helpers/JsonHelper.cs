@@ -20,11 +20,9 @@ namespace Console_Tracker.Helpers
             // сериализуй config в строку и запиши в файл
             // подсказка: JsonSerializer.Serialize() и File.WriteAllText()
         }
-
+        
         public static  TrackerConfiguration LoadConfig()
         {
-
-
             if (File.Exists(configPath))
             {
                 var json = File.ReadAllText(configPath);
