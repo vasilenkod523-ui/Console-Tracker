@@ -12,6 +12,7 @@ namespace Console_Tracker.Helpers
         // GetConfig, GetStatistics, SaveStatistics.
 
         private static string configPath = "config.json";
+        private static string statisticsPath = "statistics.json";
 
         public static void SaveConfig(TrackerConfiguration config)
         {
@@ -20,8 +21,14 @@ namespace Console_Tracker.Helpers
             // сериализуй config в строку и запиши в файл
             // подсказка: JsonSerializer.Serialize() и File.WriteAllText()
         }
-        
-        public static  TrackerConfiguration LoadConfig()
+        // на Этапе 8 реализуй метод SaveStatistics, который будет сериализовывать объект StatisticApp в строку и записывать в файл statistics.json.
+        //public static void SaveStatistics(StatisticApp statistics)
+        //{
+        //    File.WriteAllText(statisticsPath, JsonSerializer.Serialize(statistics));
+        //    // сериализуй statistics в строку и запиши в файл
+        //}
+
+        public static TrackerConfiguration LoadConfig()
         {
             if (File.Exists(configPath))
             {
@@ -34,7 +41,7 @@ namespace Console_Tracker.Helpers
             }
             // если файл существует - прочитай и десериализуй
             // если нет - верни new TrackerConfiguration()
-            // подсказка: File.Exists(), File.ReadAllText(), JsonSerializer.Deserialize<>()
+           
       
 
         }
