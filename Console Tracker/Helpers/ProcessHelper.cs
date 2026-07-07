@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
@@ -29,7 +29,7 @@ namespace Console_Tracker.Helpers
                             Console.WriteLine(process.ProcessName);
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         // Игнорируем процессы, к которым нет доступа
                     }

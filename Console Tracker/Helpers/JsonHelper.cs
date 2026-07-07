@@ -12,7 +12,7 @@ namespace Console_Tracker.Helpers
         // GetConfig, GetStatistics, SaveStatistics.
 
         private static string configPath = "config.json";
-        private static string statisticsPath = "statistics.json";
+        //private static string statisticsPath = "statistics.json";
 
         public static void SaveConfig(TrackerConfiguration config)
         {
@@ -33,7 +33,7 @@ namespace Console_Tracker.Helpers
             if (File.Exists(configPath))
             {
                 var json = File.ReadAllText(configPath);
-                return JsonSerializer.Deserialize<TrackerConfiguration>(json); //?????
+                return JsonSerializer.Deserialize<TrackerConfiguration>(json) ?? new TrackerConfiguration();
             }
             else
             {
@@ -41,9 +41,7 @@ namespace Console_Tracker.Helpers
             }
             // если файл существует - прочитай и десериализуй
             // если нет - верни new TrackerConfiguration()
-           
-      
-
         }
     }
 }
+

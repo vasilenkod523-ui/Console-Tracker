@@ -1,8 +1,9 @@
 ﻿using Console_Tracker.Helpers;
 using Console_Tracker.Models;
+using System;
 using System.Diagnostics;
 using System.Linq;
-using System;
+using System.Text.Json;
 
 
 namespace Console_Tracker
@@ -12,18 +13,18 @@ namespace Console_Tracker
         static void Main(string[] args)
         {
             var config = JsonHelper.LoadConfig();
+
             if (!config.IsTrackingEnabled)
             {
                 return;
             }
-
-
+            
             foreach (var app in config.Applications)
             {
                 var process = Process.GetProcessesByName(app.ProcessName).FirstOrDefault();
                 if (process != null)
                 {
-
+                    Console.WriteLine($"\n{app.ProcessName}");
                 }
             }
 
