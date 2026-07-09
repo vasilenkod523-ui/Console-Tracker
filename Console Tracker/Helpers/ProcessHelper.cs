@@ -1,4 +1,5 @@
-﻿ using System;
+﻿using System;
+using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
@@ -37,7 +38,7 @@ namespace Console_Tracker.Helpers
             }
         }
 
-       
+        
 
         // GetProcessByName, GetProcessById.
         // спроси у ИИ
