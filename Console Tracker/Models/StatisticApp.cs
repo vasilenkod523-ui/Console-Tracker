@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Console_Tracker.Models;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
+using System.Text.Json;
 
 namespace Console_Tracker.Models
 {
@@ -11,5 +13,7 @@ namespace Console_Tracker.Models
         public List<TimeSpan> UsageTimes { get; set; }
     }
 }
+//              Unity
 //new Models.TimeSpan { Duration = (int)System.TimeSpan.FromHours(1).TotalSeconds },
 //new Models.TimeSpan { Duration = (int)System.TimeSpan.FromMinutes(30).TotalSeconds }
+
