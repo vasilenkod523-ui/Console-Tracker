@@ -129,13 +129,16 @@ namespace Console_Tracker
 
                             if (appStatistic == null)
                             {
-                                // create new statistic entry if none exists
-                                appStatistic = new StatisticApp
-                                {
-                                    ProcessName = matchedApp.ProcessName,
-                                    UsageTimes = new List<Models.TimeSpan>()
-                                };
-                                statistic.Add(appStatistic);
+                               
+                                    // create new statistic entry if none exists
+                                    appStatistic = new StatisticApp
+                                    {
+                                        ProcessName = matchedApp.ProcessName,
+                                        UsageTimes = new List<Models.TimeSpan>()
+                                    };
+                                    statistic.Add(appStatistic);
+                                
+                              
                             }
 
                             // record new timespan
