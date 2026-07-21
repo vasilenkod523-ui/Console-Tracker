@@ -370,6 +370,7 @@ FodyWeavers.xsd
 UserSettings/
 MemoryCaptures/
 Assets/AssetStoreTools*
+Assets/TextMesh Pro/
 
 # Автогенерируемые файлы Unity
 *.pidb

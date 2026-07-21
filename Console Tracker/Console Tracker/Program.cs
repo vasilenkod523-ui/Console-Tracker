@@ -45,8 +45,8 @@ namespace Console_Tracker
             }
 
 
-            if (statistic == null) {statistic = new List<StatisticApp>();}
-            if (!config.IsTrackingEnabled){return;}
+            if (!config.IsTrackingEnabled)
+                return;
 
             // Оставляем из конфига только те приложения, у которых стоит IsEnabled = true —
             // именно их будем искать среди активных процессов
@@ -94,7 +94,6 @@ namespace Console_Tracker
                         var json = JsonSerializer.Serialize(statistic);
                         File.WriteAllText("statistic.json", json);
 
-                        
                         currentTimeSpan = null;
                     }
 
@@ -129,16 +128,13 @@ namespace Console_Tracker
 
                             if (appStatistic == null)
                             {
-                               
-                                    // create new statistic entry if none exists
-                                    appStatistic = new StatisticApp
-                                    {
-                                        ProcessName = matchedApp.ProcessName,
-                                        UsageTimes = new List<Models.TimeSpan>()
-                                    };
-                                    statistic.Add(appStatistic);
-                                
-                              
+                                // create new statistic entry if none exists
+                                appStatistic = new StatisticApp
+                                {
+                                    ProcessName = matchedApp.ProcessName,
+                                    UsageTimes = new List<Models.TimeSpan>()
+                                };
+                                statistic.Add(appStatistic);
                             }
 
                             // record new timespan
@@ -158,6 +154,10 @@ namespace Console_Tracker
                         // процесс уже мог завершиться к моменту проверки
                         Console.WriteLine("Не удалось определить процесс");
                     }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Ошибка: {ex.Message}");
+                    }
 
                     lastWindowHandle = currentWindowHandle;
                 }
@@ -166,7 +166,7 @@ namespace Console_Tracker
 
                 // Sleep нужен, чтобы не грузить CPU постоянными проверками —
                 // переключение окна не критично поймать мгновенно
-                Thread.Sleep(750);
+                Thread.Sleep(1000);
             }
 
             //___________________________________________________
