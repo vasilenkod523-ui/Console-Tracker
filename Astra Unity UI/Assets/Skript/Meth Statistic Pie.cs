@@ -4,118 +4,94 @@ using UnityEngine;
 using XCharts;
 using XCharts.Runtime;
 
-[System.Serializable]
-public class ApplicationItem
-{
-    public string DisplayName;
-    public string ProcessName;
-    public bool IsEnabled;
-}
-
-[System.Serializable]
-public class ApplicationConfig
-{
-    public ApplicationItem[] Applications;
-}
-
-[System.Serializable]
-public class UsageTime
-{
-    public int Duration;
-}
-
-[System.Serializable]
-public class ProcessUsage
-{
-    public string ProcessName;
-    public UsageTime[] UsageTimes;
-}
-
-[System.Serializable]
-public class ProcessUsageList
-{
-    public ProcessUsage[] Items;
-}
-
-
+/// <summary>
+/// Загружает данные из JSON и отображает их
+/// в круговой диаграмме XCharts.
+/// </summary>
 public class TimeTrackerPieChart : MonoBehaviour
 {
-    public PieChart pieChart;
+    // Перетащи сюда PieChart из Hierarchy.
+    [SerializeField] private PieChart chart;
 
-    public string applicationsJsonPath;
-    public string usageJsonPath;
+    private string statisticPath = @"D:\WEB\Astra\Console Tracker\Console Tracker\bin\Debug\net10.0\statistic.json";
+    private string configPath = @"D:\WEB\Astra\Console Tracker\Console Tracker\bin\Debug\net10.0\config.json";
 
-
-    void Start()
+    private void Start()
     {
         LoadChart();
     }
 
-
-    void LoadChart()
+    /// <summary>
+    /// Полностью обновляет диаграмму.
+    /// </summary>
+    private void LoadChart()
     {
-        string applicationsJson = File.ReadAllText(applicationsJsonPath);
-        string usageJson = File.ReadAllText(usageJsonPath);
-
-
-        // Читаем список приложений
-        ApplicationConfig applications =
-            JsonUtility.FromJson<ApplicationConfig>(applicationsJson);
-
-
-        // JsonUtility не умеет читать массив напрямую,
-        // поэтому добавляем обёртку
-        ProcessUsage[] usages =
-            JsonUtility.FromJson<ProcessUsageList>(
-                "{\"Items\":" + usageJson + "}"
-            ).Items;
-
-
-        pieChart.ClearData();
-
-
-        foreach (var app in applications.Applications)
+        // Проверяем существование файлов.
+        if (!File.Exists(statisticPath))
         {
-            var process = usages.FirstOrDefault(
-                x => x.ProcessName == app.ProcessName
-            );
-
-
-            if (process == null)
-                continue;
-
-
-            int totalSeconds = process.UsageTimes.Sum(
-                x => x.Duration
-            );
-
-
-            // В диаграмму отдаём часы
-            float hours = totalSeconds / 3600f;
-
-
-            pieChart.AddData(
-                0,
-                hours,
-                app.DisplayName
-            );
-
-
-            Debug.Log(
-                app.DisplayName +
-                ": " +
-                FormatTime(totalSeconds)
-            );
+            Debug.LogError("Не найден Statistic.json");
+            return;
         }
+
+        if (!File.Exists(configPath))
+        {
+            Debug.LogError("Не найден Config.json");
+            return;
+        }
+
+        // Читаем JSON.
+        string applicationsJson = File.ReadAllText(statisticPath);
+        string configJson = File.ReadAllText(configPath);
+
+        // ====================================================
+        // TODO
+        // Здесь нужно вызвать парсер твоего JSON.
+        // Пока этот код неизвестен,
+        // потому что его уже реализовал ты.
+        //
+        // Например:
+        //
+        // var applications = ...
+        // var usages = ...
+        //
+        // ====================================================
+
+        chart.ClearData();
+
+        // ====================================================
+        // TODO
+        // Здесь должен быть цикл.
+        //
+        // foreach(...)
+        // {
+        //     найти приложение;
+        //     найти время;
+        //     посчитать секунды;
+        //     перевести в часы;
+        //
+        //     chart.AddData(...);
+        // }
+        // ====================================================
     }
 
-
-    string FormatTime(int seconds)
+    /// <summary>
+    /// Перевод секунд в строку.
+    /// </summary>
+    private string FormatTime(int totalSeconds)
     {
-        int hours = seconds / 3600;
-        int minutes = (seconds % 3600) / 60;
-        int secs = seconds % 60;
+        int hours = totalSeconds / 3600;
+        int minutes = (totalSeconds % 3600) / 60;
+        int seconds = totalSeconds % 60;
 
-        return $"{hours}ч {minutes}м {secs}с";
+        return $"{hours} ч {minutes} мин {seconds} сек";
+    }
+
+    /// <summary>
+    /// Перевод секунд в часы.
+    /// Именно это число используется диаграммой.
+    /// </summary>
+    private float SecondsToHours(int totalSeconds)
+    {
+        return totalSeconds / 3600f;
     }
 }
