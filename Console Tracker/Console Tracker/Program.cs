@@ -11,7 +11,7 @@ namespace Console_Tracker
 {
     internal class Program
     {
-
+        
         // Импорт функций из системной библиотеки user32.dll,
         // т.к. в .NET нет своих методов для получения активного окна ОС.
 
@@ -26,6 +26,8 @@ namespace Console_Tracker
 
         static void Main(string[] args)
         {
+            // Обновляем список установленных программ (для Unity)
+            ProgramScanner.ScanAndSave();
 
             // Читаем config.json: список отслеживаемых приложений и статус включения трекера
             var config = JsonHelper.LoadConfig();

@@ -13,13 +13,13 @@
 
 
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using Console_Tracker.Models;
-using Microsoft.Win32;
+using System;                          // базовые типы (DateTime, и т.д.)
+using System.Collections.Generic;      // List<T>, Dictionary<K,V>
+using System.IO;                       // работа с файлами и папками
+using System.Text.Json;                // сериализация в JSON (встроена в .NET)
+using System.Text.Json.Serialization;  // доп. настройки сериализации (JsonIgnoreCondition)
+using Console_Tracker.Models;          // ваши классы ProgramInfo / ProgramCatalog
+using Microsoft.Win32;                 // доступ к реестру Windows
 
 namespace Console_Tracker.Helpers
 {
