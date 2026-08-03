@@ -11,8 +11,8 @@ namespace Console_Tracker.Helpers
     {
         // GetConfig, GetStatistics, SaveStatistics.
 
-        private static string configPath = "config.json";
-        private static string statisticPath = "statistic.json";
+        private static string configPath = "D:\\WEB\\Astra\\Console Tracker\\Console Tracker\\bin\\Debug\\net10.0\\config.json";
+        private static string statisticPath = "D:\\WEB\\Astra\\Console Tracker\\Console Tracker\\bin\\Debug\\net10.0\\statistic.json";
 
         public static void SaveConfig(TrackerConfiguration config)
         {

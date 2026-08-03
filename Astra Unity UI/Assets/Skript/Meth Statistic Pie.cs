@@ -18,6 +18,13 @@ public class TimeTrackerPieChart : MonoBehaviour
 
     private void Start()
     {
+        
+
+        // Парсинг: строка -> объект
+        string statisticJson = File.ReadAllText(statisticPath);
+        Item item = JsonUtility.FromJson<Item>(statisticJson);
+        Debug.Log(item.name); // "Меч огня"
+
         LoadChart();
     }
 

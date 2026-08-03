@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityApp = UnityEngine.Application;
 
 namespace TMPro.Examples
 {
@@ -30,7 +30,7 @@ namespace TMPro.Examples
                 return;
 
             m_camera = Camera.main;
-            Application.targetFrameRate = 9999;
+            UnityApp.targetFrameRate = 9999;
 
             GameObject frameCounter = new GameObject("Frame Counter");
 

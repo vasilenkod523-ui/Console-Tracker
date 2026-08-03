@@ -53,11 +53,11 @@ namespace TMPro.Examples
         void Awake()
         {
             if (QualitySettings.vSyncCount > 0)
-                Application.targetFrameRate = 60;
+                UnityEngine.Application.targetFrameRate = 60;
             else
-                Application.targetFrameRate = -1;
+                UnityEngine.Application.targetFrameRate = -1;
 
-            if (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android)
+            if (UnityEngine.Application.platform == RuntimePlatform.IPhonePlayer || UnityEngine.Application.platform == RuntimePlatform.Android)
                 Input.simulateMouseWithTouches = false;
 
             cameraTransform = transform;
