@@ -9,8 +9,6 @@ namespace Console_Tracker.Helpers
 {
     public static class JsonHelper
     {
-        // GetConfig, GetStatistics, SaveStatistics.
-
         private static string configPath = "D:\\WEB\\Astra\\Console Tracker\\Console Tracker\\bin\\Debug\\net10.0\\config.json";
         private static string statisticPath = "D:\\WEB\\Astra\\Console Tracker\\Console Tracker\\bin\\Debug\\net10.0\\statistic.json";
 
@@ -18,6 +16,7 @@ namespace Console_Tracker.Helpers
         {
             File.WriteAllText(configPath, JsonSerializer.Serialize(config));
         }
+
         public static void SaveStatistics(StatisticApp statistics)
         {
             File.WriteAllText(statisticPath, JsonSerializer.Serialize(statistics));
@@ -34,8 +33,6 @@ namespace Console_Tracker.Helpers
             {
                 return new TrackerConfiguration();
             }
-            // если файл существует - прочитай и десериализуй
-            // если нет - верни new TrackerConfiguration()
         }
 
         public static List<StatisticApp> LoadStatistics()
@@ -50,7 +47,5 @@ namespace Console_Tracker.Helpers
                 return new List<StatisticApp>();
             }
         }
-
     }
 }
-

@@ -125,7 +125,7 @@ namespace Console_Tracker
                             Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] Активно: {matchedApp.DisplayName}");
                             //------???????-----!!!!!!!--------
                             // find existing statistic entry for this process
-                            var appStatistic = statistic.Find(s =>
+                            var appStatistic = statistic?.Find(s =>
                                 s.ProcessName.Equals(matchedApp.ProcessName, StringComparison.OrdinalIgnoreCase));
 
                             if (appStatistic == null)
@@ -136,7 +136,7 @@ namespace Console_Tracker
                                     ProcessName = matchedApp.ProcessName,
                                     UsageTimes = new List<Models.TimeSpan>()
                                 };
-                                statistic.Add(appStatistic);
+                                statistic?.Add(appStatistic);
                             }
 
                             // record new timespan

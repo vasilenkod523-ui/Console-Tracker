@@ -1,104 +1,58 @@
+using Console_Tracker.Models;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
-using XCharts;
 using XCharts.Runtime;
 
-/// <summary>
-/// Загружает данные из JSON и отображает их
-/// в круговой диаграмме XCharts.
-/// </summary>
 public class TimeTrackerPieChart : MonoBehaviour
 {
-    // Перетащи сюда PieChart из Hierarchy.
-    [SerializeField] private PieChart chart;
+    [SerializeField] private PieChart pieChart; 
 
-    private string statisticPath = @"D:\WEB\Astra\Console Tracker\Console Tracker\bin\Debug\net10.0\statistic.json";
-    private string configPath = @"D:\WEB\Astra\Console Tracker\Console Tracker\bin\Debug\net10.0\config.json";
+    private static string statisticPath =
+        "D:\\WEB\\Astra\\Console Tracker\\Console Tracker\\bin\\Debug\\net10.0\\statistic.json";
 
     private void Start()
     {
-        
-
-        // Парсинг: строка -> объект
-        string statisticJson = File.ReadAllText(statisticPath);
-        Item item = JsonUtility.FromJson<Item>(statisticJson);
-        Debug.Log(item.name); // "Меч огня"
-
-        LoadChart();
+        Debug.Log("СТАРТ ВЫЗВАН"); // временная проверка
+        LoadAndDisplayChart();
     }
 
-    /// <summary>
-    /// Полностью обновляет диаграмму.
-    /// </summary>
-    private void LoadChart()
+    private void LoadAndDisplayChart()
     {
-        // Проверяем существование файлов.
         if (!File.Exists(statisticPath))
         {
-            Debug.LogError("Не найден Statistic.json");
+            Debug.Log("Файл статистики не найден");
             return;
         }
 
-        if (!File.Exists(configPath))
+        string statisticJson = File.ReadAllText(statisticPath);
+        List<StatisticApp> items = JsonConvert.DeserializeObject<List<StatisticApp>>(statisticJson);
+
+        if (items == null || items.Count == 0)
         {
-            Debug.LogError("Не найден Config.json");
+            Debug.Log("Данные пустые");
             return;
         }
 
-        // Читаем JSON.
-        string applicationsJson = File.ReadAllText(statisticPath);
-        string configJson = File.ReadAllText(configPath);
+        if (pieChart.series == null || pieChart.series.Count == 0)
+        {
+            Debug.LogError("У PieChart нет ни одной Serie!");
+            return;
+        }
 
-        // ====================================================
-        // TODO
-        // Здесь нужно вызвать парсер твоего JSON.
-        // Пока этот код неизвестен,
-        // потому что его уже реализовал ты.
-        //
-        // Например:
-        //
-        // var applications = ...
-        // var usages = ...
-        //
-        // ====================================================
+        var serie = pieChart.series[0];
+        serie.ClearData(); //????
 
-        chart.ClearData();
+        foreach (var app in items)
+        {
+            double totalDuration = app.UsageTimes.Sum(u => u.Duration);
+            Debug.Log($"Добавляю: {app.ProcessName} = {totalDuration}");
+            serie.AddYData(totalDuration, app.ProcessName);
+        }
 
-        // ====================================================
-        // TODO
-        // Здесь должен быть цикл.
-        //
-        // foreach(...)
-        // {
-        //     найти приложение;
-        //     найти время;
-        //     посчитать секунды;
-        //     перевести в часы;
-        //
-        //     chart.AddData(...);
-        // }
-        // ====================================================
-    }
-
-    /// <summary>
-    /// Перевод секунд в строку.
-    /// </summary>
-    private string FormatTime(int totalSeconds)
-    {
-        int hours = totalSeconds / 3600;
-        int minutes = (totalSeconds % 3600) / 60;
-        int seconds = totalSeconds % 60;
-
-        return $"{hours} ч {minutes} мин {seconds} сек";
-    }
-
-    /// <summary>
-    /// Перевод секунд в часы.
-    /// Именно это число используется диаграммой.
-    /// </summary>
-    private float SecondsToHours(int totalSeconds)
-    {
-        return totalSeconds / 3600f;
+        pieChart.RefreshChart();
+      
     }
 }

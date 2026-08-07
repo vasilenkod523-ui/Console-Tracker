@@ -6,7 +6,7 @@ namespace Console_Tracker.Models
 {
     public class TrackerConfiguration
     {
-        public List<TrackedApplication> Applications { get; set; } = [];
+        public List<TrackedApplication> Applications { get; set; } = new List<TrackedApplication>();
 
         public bool IsTrackingEnabled { get; set; }
     }
