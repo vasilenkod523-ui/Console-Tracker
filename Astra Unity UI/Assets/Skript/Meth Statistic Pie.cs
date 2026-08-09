@@ -48,8 +48,9 @@ public class TimeTrackerPieChart : MonoBehaviour
         foreach (var app in items)
         {
             double totalDuration = app.UsageTimes.Sum(u => u.Duration);
-            Debug.Log($"Добавляю: {app.ProcessName} = {totalDuration}");
-            serie.AddYData(totalDuration, app.ProcessName);
+            double totalDurationInMinutes = totalDuration / 60.0; // Преобразуем в минуты
+            Debug.Log($"Добавляю: {app.ProcessName} = {totalDurationInMinutes}");
+            serie.AddYData(totalDurationInMinutes, app.ProcessName);
         }
 
         pieChart.RefreshChart();
