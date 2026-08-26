@@ -1,5 +1,6 @@
 using Console_Tracker.Models;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,7 +16,6 @@ public class TimeTrackerPieChart : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("СТАРТ ВЫЗВАН"); // временная проверка
         LoadAndDisplayChart();
     }
 
@@ -36,7 +36,7 @@ public class TimeTrackerPieChart : MonoBehaviour
             return;
         }
 
-        if (pieChart.series == null || pieChart.series.Count == 0)
+        if (pieChart?.series == null || pieChart.series.Count == 0)
         {
             Debug.LogError("У PieChart нет ни одной Serie!");
             return;
@@ -48,10 +48,10 @@ public class TimeTrackerPieChart : MonoBehaviour
         foreach (var app in items)
         {
             double totalDuration = app.UsageTimes.Sum(u => u.Duration);
-            double totalDurationInMinutes = totalDuration / 60.0; // Преобразуем в минуты
-            Debug.Log($"Добавляю: {app.ProcessName} = {totalDurationInMinutes}");
+            double totalDurationInMinutes = Math.Ceiling(totalDuration / 60); // Преобразуем в минуты
             serie.AddYData(totalDurationInMinutes, app.ProcessName);
         }
+        //
 
         pieChart.RefreshChart();
       

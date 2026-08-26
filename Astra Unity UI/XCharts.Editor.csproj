@@ -24,7 +24,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <NoWarn>0169;USG0001</NoWarn>
-    <DefineConstants>UNITY_6000_3_17;UNITY_6000_3;UNITY_6000;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;UNITY_2023_1_OR_NEWER;UNITY_2023_2_OR_NEWER;UNITY_2023_3_OR_NEWER;UNITY_6000_0_OR_NEWER;UNITY_6000_1_OR_NEWER;UNITY_6000_2_OR_NEWER;UNITY_6000_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_AUDIO_SCRIPTABLE_PIPELINE;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_UNITY_CONSENT;ENABLE_UNITY_CLOUD_IDENTIFIERS;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_MARSHALLING_TESTS;ENABLE_VIDEO;ENABLE_NAVIGATION_OFFMESHLINK_TO_NAVMESHLINK;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_ACCESSIBILITY_SCREEN_READER;TEXTCORE_1_0_OR_NEWER;EDITOR_ONLY_NAVMESH_BUILDER_DEPRECATED;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_AMD;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_CLOUD_SERVICES_ENGINE_DIAGNOSTICS;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_USES_EXPLICIT_MEMORY_MANAGER_INITIALIZER;PLATFORM_SUPPORTS_WAIT_FOR_PRESENTATION;PLATFORM_SUPPORTS_SPLIT_GRAPHICS_JOBS;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;ENABLE_PROFILER_ASSISTANT_INTEGRATION;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;TEXTCORE_TEXT_ENGINE_1_5_OR_NEWER;TEXTCORE_FONT_ENGINE_1_6_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;UNITY_EDITOR_ONLY_COMPILATION</DefineConstants>
+    <DefineConstants>UNITY_6000_3_17;UNITY_6000_3;UNITY_6000;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;UNITY_2023_1_OR_NEWER;UNITY_2023_2_OR_NEWER;UNITY_2023_3_OR_NEWER;UNITY_6000_0_OR_NEWER;UNITY_6000_1_OR_NEWER;UNITY_6000_2_OR_NEWER;UNITY_6000_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_AUDIO_SCRIPTABLE_PIPELINE;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_UNITY_CONSENT;ENABLE_UNITY_CLOUD_IDENTIFIERS;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_MARSHALLING_TESTS;ENABLE_VIDEO;ENABLE_NAVIGATION_OFFMESHLINK_TO_NAVMESHLINK;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_ACCESSIBILITY_SCREEN_READER;TEXTCORE_1_0_OR_NEWER;EDITOR_ONLY_NAVMESH_BUILDER_DEPRECATED;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_AMD;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_CLOUD_SERVICES_ENGINE_DIAGNOSTICS;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_USES_EXPLICIT_MEMORY_MANAGER_INITIALIZER;PLATFORM_SUPPORTS_WAIT_FOR_PRESENTATION;PLATFORM_SUPPORTS_SPLIT_GRAPHICS_JOBS;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;ENABLE_PROFILER_ASSISTANT_INTEGRATION;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;TEXTCORE_TEXT_ENGINE_1_5_OR_NEWER;TEXTCORE_FONT_ENGINE_1_6_OR_NEWER;SENTIS_ANALYTICS_ENABLED;APP_UI_EDITOR_ONLY;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;UNITY_EDITOR_ONLY_COMPILATION</DefineConstants>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
@@ -50,19 +50,48 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\XCharts-master\Editor\Series\SerieListEditor.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\MainComponents\MainComponentBaseEditor.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\Series\ScatterEditor.cs" />
     <Compile Include="Assets\XCharts-master\Editor\Series\SerieEditor.cs" />
     <Compile Include="Assets\XCharts-master\Editor\ChildComponents\ItemStyleDrawer.cs" />
     <Compile Include="Assets\XCharts-master\Editor\Windows\XChartsEditor.PieChart.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\MainComponents\LegendEditor.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\Series\CandlestickEditor.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\MainComponents\VisualMapEditor.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\ChildComponents\BorderStyleDrawer.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\MainComponents\CommentEditor.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\ChildComponents\LabelLineDrawer.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\MainComponents\TooltipEditor.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\Series\BarEditor.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\MainComponents\MarkLineEditor.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\Windows\XChartsEditor.LineChart.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\Utilities\EditorStyles.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\Series\SimplifiedCandlestickEditor.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\ChildComponents\CommentItemDrawer.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\ChildComponents\MarqueeStyleDrawer.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\Series\ParallelEditor.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\ChildComponents\MLValueDrawer.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\ChildComponents\TextLimitDrawer.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\MainComponents\ParallelCoordEditor.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\MainComponents\ThemeEditor.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\Series\LineEditor.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\ChildComponents\CommentMarkStyleDrawer.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\Series\HeatmapEditor.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\Windows\XCSettingsEditor.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\Utilities\ChartEditorHelper.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\Windows\XChartsEditor.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\MainComponents\RadarCoordEditor.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\ChildComponents\TextStyleDrawer.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\ChildComponents\AnimationDrawer.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\ChildComponents\TitleStyleDrawer.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\MainComponents\GridLayoutEditor.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\Windows\XChartsEditor.PolarChart.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\MainComponents\MainComponentBaseEditor.cs" />
+    <Compile Include="Assets\XCharts-master\Editor\Series\ScatterEditor.cs" />
     <Compile Include="Assets\XCharts-master\Editor\ChildComponents\DebugInfoDrawer.cs" />
     <Compile Include="Assets\XCharts-master\Editor\ChildComponents\TextPaddingDrawer.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\MainComponents\LegendEditor.cs" />
     <Compile Include="Assets\XCharts-master\Editor\Series\SimplifiedLineEditor.cs" />
     <Compile Include="Assets\XCharts-master\Editor\ChildComponents\LabelStyleDrawer.cs" />
     <Compile Include="Assets\XCharts-master\Editor\ChildComponents\LocationDrawer.cs" />
     <Compile Include="Assets\XCharts-master\Editor\ChildComponents\ViewControlDrawer.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\Series\CandlestickEditor.cs" />
     <Compile Include="Assets\XCharts-master\Editor\ChildComponents\LineDrawer.cs" />
     <Compile Include="Assets\XCharts-master\Editor\MainComponents\TitleEditor.cs" />
     <Compile Include="Assets\XCharts-master\Editor\MainComponents\MainComponentListEditor.cs" />
@@ -71,69 +100,40 @@
     <Compile Include="Assets\XCharts-master\Editor\MainComponents\MainComponentEditor.cs" />
     <Compile Include="Assets\XCharts-master\Editor\ChildComponents\ImageStyleDrawer.cs" />
     <Compile Include="Assets\XCharts-master\Editor\Windows\PraseExternalDataEditor.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\MainComponents\VisualMapEditor.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\ChildComponents\BorderStyleDrawer.cs" />
     <Compile Include="Assets\XCharts-master\Editor\ChildComponents\LineStyleDrawer.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\MainComponents\CommentEditor.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\ChildComponents\LabelLineDrawer.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\MainComponents\TooltipEditor.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\Series\BarEditor.cs" />
     <Compile Include="Assets\XCharts-master\Editor\Windows\UIComponentJsonImportWindow.cs" />
     <Compile Include="Assets\XCharts-master\Editor\MainComponents\MarkAreaEditor.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\MainComponents\MarkLineEditor.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\Windows\XChartsEditor.LineChart.cs" />
     <Compile Include="Assets\XCharts-master\Editor\ChildComponents\LineArrowDrawer.cs" />
     <Compile Include="Assets\XCharts-master\Editor\Series\SimplifiedBarEditor.cs" />
     <Compile Include="Assets\XCharts-master\Editor\Windows\XChartsEditor.BarChart.cs" />
     <Compile Include="Assets\XCharts-master\Editor\Windows\ChartJsonImportWindow.cs" />
     <Compile Include="Assets\XCharts-master\Editor\ChildComponents\SymbolStyleDrawer.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\Utilities\EditorStyles.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\Series\SimplifiedCandlestickEditor.cs" />
     <Compile Include="Assets\XCharts-master\Editor\MainComponents\GridCoord3DEditor.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\ChildComponents\CommentItemDrawer.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\ChildComponents\MarqueeStyleDrawer.cs" />
     <Compile Include="Assets\XCharts-master\Editor\Series\PieEditor.cs" />
     <Compile Include="Assets\XCharts-master\Editor\ChildComponents\StateStyleDrawer.cs" />
     <Compile Include="Assets\XCharts-master\Editor\Series\EffectScatterEditor.cs" />
     <Compile Include="Assets\XCharts-master\Editor\MainComponents\UIComponentEditor.cs" />
     <Compile Include="Assets\XCharts-master\Editor\ChildComponents\BackgroundDrawer.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\Series\ParallelEditor.cs" />
     <Compile Include="Assets\XCharts-master\Editor\Utilities\XChartsDaemon.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\ChildComponents\MLValueDrawer.cs" />
     <Compile Include="Assets\XCharts-master\Editor\ChildComponents\IconStyleDrawer.cs" />
     <Compile Include="Assets\XCharts-master\Editor\ChildComponents\BasePropertyDrawer.cs" />
     <Compile Include="Assets\XCharts-master\Editor\MainComponents\PolarCoordEditor.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\ChildComponents\TextLimitDrawer.cs" />
     <Compile Include="Assets\XCharts-master\Editor\MainComponents\DataZoomEditor.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\MainComponents\ParallelCoordEditor.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\MainComponents\ThemeEditor.cs" />
     <Compile Include="Assets\XCharts-master\Editor\MainComponents\GridCoordEditor.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\Series\LineEditor.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\ChildComponents\CommentMarkStyleDrawer.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\Series\HeatmapEditor.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\Windows\XCSettingsEditor.cs" />
     <Compile Include="Assets\XCharts-master\Editor\MainComponents\BaseGraphEditor.cs" />
     <Compile Include="Assets\XCharts-master\Editor\Attributes\SerieEditorAttribute.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\Utilities\ChartEditorHelper.cs" />
     <Compile Include="Assets\XCharts-master\Editor\Series\SerieDataLinkDrawer.cs" />
     <Compile Include="Assets\XCharts-master\Editor\ChildComponents\ThemeDrawer.cs" />
     <Compile Include="Assets\XCharts-master\Editor\Series\RingEditor.cs" />
     <Compile Include="Assets\XCharts-master\Editor\MainComponents\BackgroundEditor.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\Windows\XChartsEditor.cs" />
     <Compile Include="Assets\XCharts-master\Editor\ChildComponents\LevelStyleDrawer.cs" />
     <Compile Include="Assets\XCharts-master\Editor\ChildComponents\SerieSymbolDrawer.cs" />
     <Compile Include="Assets\XCharts-master\Editor\Attributes\ComponentEditorAttribute.cs" />
     <Compile Include="Assets\XCharts-master\Editor\MainComponents\AxisEditor.cs" />
     <Compile Include="Assets\XCharts-master\Editor\Charts\BaseChartEditor.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\MainComponents\RadarCoordEditor.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\ChildComponents\TextStyleDrawer.cs" />
     <Compile Include="Assets\XCharts-master\Editor\ChildComponents\ComponentThemeDrawer.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\ChildComponents\AnimationDrawer.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\ChildComponents\TitleStyleDrawer.cs" />
     <Compile Include="Assets\XCharts-master\Editor\MainComponents\UIComponentThemeDrawer.cs" />
     <Compile Include="Assets\XCharts-master\Editor\Series\SerieBaseEditor.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\MainComponents\GridLayoutEditor.cs" />
-    <Compile Include="Assets\XCharts-master\Editor\Windows\XChartsEditor.PolarChart.cs" />
     <Compile Include="Assets\XCharts-master\Editor\ChildComponents\SettingsDrawer.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -752,6 +752,10 @@
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@4dfd81071c64\Runtime\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="AiEditorToolsSdk">
+      <HintPath>Library\PackageCache\com.unity.ai.assistant@c0127625258e\Modules\Unity.AI.Toolkit.Sdk\Editor\AiEditorToolsSdk.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>Library\PackageCache\com.unity.visualscripting@8bed5ad90189\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
       <Private>False</Private>
@@ -1264,20 +1268,20 @@
       <HintPath>D:\My Unity\Editors\6000.3.17f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEditor.TestRunner">
-      <HintPath>Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
       <HintPath>Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.TestRunner">
+      <HintPath>Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
