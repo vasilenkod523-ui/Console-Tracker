@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using UnityEngine;
 using XCharts.Runtime;
 
@@ -16,7 +17,7 @@ public class TimeTrackerPieChart : MonoBehaviour
 
     private void Start()
     {
-        LoadAndDisplayChart();
+        InvokeRepeating("LoadAndDisplayChart", 0f, 10f);
     }
 
     private void LoadAndDisplayChart()
@@ -54,6 +55,16 @@ public class TimeTrackerPieChart : MonoBehaviour
         //
 
         pieChart.RefreshChart();
+        Debug.Log("Диаграмма обновлена");
       
+    }
+
+    private void StopRepeating()
+    {
+        // Останавливает этот конкретный метод
+        CancelInvoke("LoadAndDisplayChart");
+
+        // Або зупиняє ВСІ виклики цього компонента скрипта
+        // CancelInvoke();
     }
 }
