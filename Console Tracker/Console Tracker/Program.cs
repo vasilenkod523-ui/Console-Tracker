@@ -26,26 +26,23 @@ namespace Console_Tracker
 
         static void Main(string[] args)
         {
-            // Обновляем список установленных программ (для Unity)
+            
             ProgramScanner.ScanAndSave();
 
-            // Читаем config.json: список отслеживаемых приложений и статус включения трекера
             var config = JsonHelper.LoadConfig();
 
             List<StatisticApp> statistic;
+            string statisticFilePath = "D:\\WEB\\Astra\\Json Saver\\statistic.json";
 
-            if (File.Exists("statistic.json"))
+            if (File.Exists(statisticFilePath))
             {
-                var statisticJson = File.ReadAllText("statistic.json");
+                var statisticJson = File.ReadAllText(statisticFilePath);
                 statistic = JsonSerializer.Deserialize<List<StatisticApp>>(statisticJson) ?? new List<StatisticApp>();
             }
             else
             {
-                // Если файла нет, просто инициализируем пустой список.
-                // Файл сам создастся при первом же переключении окна!
                 statistic = new List<StatisticApp>();
             }
-
 
             if (!config.IsTrackingEnabled)
                 return;
@@ -56,21 +53,16 @@ namespace Console_Tracker
                 .Where(a => a.IsEnabled)
                 .ToList();
 
-            Console.WriteLine("Отслеживаемые приложения из config.json:");
             foreach (var app in enabledApps)
             {
                 var appStatistic = statistic?.Find(s => s.ProcessName == app.ProcessName);
                 // Считаем общую сумму секунд из прошлых сессий (если они есть)
                 int totalSeconds = appStatistic?.UsageTimes.Sum(t => t.Duration) ?? 0;
 
-                Console.WriteLine($"- {app.DisplayName} ({app.ProcessName}) | Наиграно: {totalSeconds} сек.");
+                Console.WriteLine($"- {app.DisplayName} ({app.ProcessName}) | Наиграно: {totalSeconds / 60} мин.");
             }
 
-
-
-            Console.WriteLine("\nМониторинг запущен...\n");// костыль
-
-            //___________________________________________________
+            //_______________________________________________________________________________________________________________
 
             // Храним хендл предыдущего активного окна, чтобы реагировать
             // только на смену фокуса, а не проверять на каждой итерации
@@ -94,18 +86,17 @@ namespace Console_Tracker
                             (int)(currentTimeSpan.EndTime - currentTimeSpan.StartTime).TotalSeconds;
 
                         var json = JsonSerializer.Serialize(statistic);
-                        File.WriteAllText("statistic.json", json);
+                        File.WriteAllText(statisticFilePath, json);
 
                         currentTimeSpan = null;
                     }
 
                     // фокус сменился на другое окно
                     uint processId;
-                    // Получаем ID процесса, которому принадлежит новое активное окно
+                    
                     GetWindowThreadProcessId(currentWindowHandle, out processId);
                     try
                     {
-                        // Получаем сам объект Process по его ID, чтобы узнать имя процесса.
                         // Может выбросить ArgumentException, если процесс уже успел закрыться
                         Process process = Process.GetProcessById((int)processId);
 
@@ -116,7 +107,7 @@ namespace Console_Tracker
 
                         if (matchedApp != null)
                         {
-                            // Совпадение найдено — это отслеживаемое приложение
+                            //это отслеживаемое приложение
                             currentTimeSpan = new Models.TimeSpan
                             {
                                 StartTime = DateTime.Now
@@ -141,13 +132,11 @@ namespace Console_Tracker
 
                             // record new timespan
                             appStatistic.UsageTimes.Add(currentTimeSpan);
-
                             //------???????-----!!!!!!!--------
                         }
 
                         else
                         {
-                            // Активный процесс есть, но его нет в списке включённых
                             Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] {process.ProcessName} (не отслеживается)");
                         }
                     }
@@ -163,15 +152,8 @@ namespace Console_Tracker
 
                     lastWindowHandle = currentWindowHandle;
                 }
-
-
-
-                // Sleep нужен, чтобы не грузить CPU постоянными проверками —
-                // переключение окна не критично поймать мгновенно
                 Thread.Sleep(1000);
             }
-
-            //___________________________________________________
         }
     }
 }

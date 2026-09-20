@@ -1,8 +1,10 @@
 using Console_Tracker.Models;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using UnityEngine;
 using XCharts.Runtime;
 
@@ -11,12 +13,11 @@ public class TimeTrackerPieChart : MonoBehaviour
     [SerializeField] private PieChart pieChart; 
 
     private static string statisticPath =
-        "D:\\WEB\\Astra\\Console Tracker\\Console Tracker\\bin\\Debug\\net10.0\\statistic.json";
+        "D:\\WEB\\Astra\\Json Saver\\statistic.json";
 
     private void Start()
     {
-        Debug.Log("СТАРТ ВЫЗВАН"); // временная проверка
-        LoadAndDisplayChart();
+        InvokeRepeating("LoadAndDisplayChart", 0f, 10f);
     }
 
     private void LoadAndDisplayChart()
@@ -36,7 +37,7 @@ public class TimeTrackerPieChart : MonoBehaviour
             return;
         }
 
-        if (pieChart.series == null || pieChart.series.Count == 0)
+        if (pieChart?.series == null || pieChart.series.Count == 0)
         {
             Debug.LogError("У PieChart нет ни одной Serie!");
             return;
@@ -48,12 +49,22 @@ public class TimeTrackerPieChart : MonoBehaviour
         foreach (var app in items)
         {
             double totalDuration = app.UsageTimes.Sum(u => u.Duration);
-            double totalDurationInMinutes = totalDuration / 60.0; // Преобразуем в минуты
-            Debug.Log($"Добавляю: {app.ProcessName} = {totalDurationInMinutes}");
+            double totalDurationInMinutes = Math.Ceiling(totalDuration / 60); // Преобразуем в минуты
             serie.AddYData(totalDurationInMinutes, app.ProcessName);
         }
+        //
 
         pieChart.RefreshChart();
+        Debug.Log("Диаграмма обновлена");
       
+    }
+
+    private void StopRepeating()
+    {
+        // Останавливает этот конкретный метод
+        CancelInvoke("LoadAndDisplayChart");
+
+        // Або зупиняє ВСІ виклики цього компонента скрипта
+        // CancelInvoke();
     }
 }
