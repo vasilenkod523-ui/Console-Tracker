@@ -28,26 +28,30 @@ public class DynamicToggle : MonoBehaviour
             GameObject newToggleObj = Instantiate(togglePrefab, container);
 
             var legacyText = newToggleObj.GetComponentInChildren<Text>();
+            //legacyText.OnCullingChanged
             if (legacyText != null) legacyText.text = app.DisplayName;
 
             var tmpText = newToggleObj.GetComponentInChildren<TMP_Text>();
             if (tmpText != null) tmpText.text = app.DisplayName;
-            
-           /* // Иконка — если в InstalledApp хранится System.Drawing.Bitmap или byte[] PNG
-            var iconImage = newToggleObj.transform.Find("Icon")?.GetComponent<UnityEngine.UI.Image>();
-            if (iconImage != null && app.Icon != null)
-            {
-                // Преобразовать System.Drawing.Bitmap в Unity Texture2D
-                Texture2D tex = Texture2DFromBitmap(app.Icon);
-                if (tex != null)
-                {
-                    iconImage.sprite = Sprite.Create(
-                        tex,
-                        new Rect(0, 0, tex.width, tex.height),
-                        new Vector2(0.5f, 0.5f));
-                }
-            }
-           */
+
+            //Сюда передается имя процесса, которое можно использовать 
+
+
+            /* // Иконка — если в InstalledApp хранится System.Drawing.Bitmap или byte[] PNG
+             var iconImage = newToggleObj.transform.Find("Icon")?.GetComponent<UnityEngine.UI.Image>();
+             if (iconImage != null && app.Icon != null)
+             {
+                 // Преобразовать System.Drawing.Bitmap в Unity Texture2D
+                 Texture2D tex = Texture2DFromBitmap(app.Icon);
+                 if (tex != null)
+                 {
+                     iconImage.sprite = Sprite.Create(
+                         tex,
+                         new Rect(0, 0, tex.width, tex.height),
+                         new Vector2(0.5f, 0.5f));
+                 }
+             }
+            */
         }
     }
 

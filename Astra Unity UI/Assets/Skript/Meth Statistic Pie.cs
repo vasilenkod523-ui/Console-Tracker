@@ -13,7 +13,7 @@ public class TimeTrackerPieChart : MonoBehaviour
     [SerializeField] private PieChart pieChart; 
 
     private static string statisticPath =
-        "D:\\WEB\\Astra\\Console Tracker\\Console Tracker\\bin\\Debug\\net10.0\\statistic.json";
+        "D:\\WEB\\Astra\\Json Saver\\statistic.json";
 
     private void Start()
     {

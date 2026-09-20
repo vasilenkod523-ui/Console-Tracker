@@ -9,8 +9,8 @@ namespace Console_Tracker.Helpers
 {
     public static class JsonHelper
     {
-        private static string configPath = "D:\\WEB\\Astra\\Console Tracker\\Console Tracker\\bin\\Debug\\net10.0\\config.json";
-        private static string statisticPath = "D:\\WEB\\Astra\\Console Tracker\\Console Tracker\\bin\\Debug\\net10.0\\statistic.json";
+        private static string configPath = "D:\\WEB\\Astra\\Json Saver\\config.json";
+        private static string statisticPath = "D:\\WEB\\Astra\\Json Saver\\statistic.json";
 
         public static void SaveConfig(TrackerConfiguration config)
         {

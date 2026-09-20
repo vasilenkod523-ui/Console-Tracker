@@ -240,7 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6411482124981816776}
   - component: {fileID: 3415014546592240581}
-  - component: {fileID: -6332637869367651887}
+  - component: {fileID: -6268702937914231976}
   m_Layer: 0
   m_Name: Toggle
   m_TagString: Untagged
@@ -316,30 +316,28 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: -6268702937914231976}
+        m_TargetAssemblyTypeName: OnToggleChanged, Assembly-CSharp
+        m_MethodName: OnToggleValueChanged
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: OnToggleValueChanged
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
   m_IsOn: 0
---- !u!114 &-6332637869367651887
+--- !u!114 &-6268702937914231976
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8878683562801221699}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02823f6bb3c1a284d9617a46a8f56f88, type: 3}
+  m_Script: {fileID: 11500000, guid: 437153087a564b747bcbc27158cfa011, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DynamicToggle
-  togglePrefab: {fileID: 8878683562801221699}
-  container: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::OnToggleChanged
