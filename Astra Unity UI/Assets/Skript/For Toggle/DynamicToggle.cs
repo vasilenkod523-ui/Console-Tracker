@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+
 using System.IO;
 using System.Drawing;                 // System.Drawing.Bitmap
 using System.Drawing.Imaging;         // ImageFormat
@@ -8,6 +9,7 @@ using UnityEngine.UI;
 
 public class DynamicToggle : MonoBehaviour
 {
+   
     [SerializeField] private GameObject togglePrefab;
     [SerializeField] private Transform container;
 
@@ -26,6 +28,10 @@ public class DynamicToggle : MonoBehaviour
         foreach (var app in processes)
         {
             GameObject newToggleObj = Instantiate(togglePrefab, container);
+            newToggleObj.name = app.DisplayName;
+
+            var data = newToggleObj.AddComponent<AppToggleData>();
+            data.ProcessName = app.ProcessName;
 
             var legacyText = newToggleObj.GetComponentInChildren<Text>();
             //legacyText.OnCullingChanged
@@ -33,10 +39,7 @@ public class DynamicToggle : MonoBehaviour
 
             var tmpText = newToggleObj.GetComponentInChildren<TMP_Text>();
             if (tmpText != null) tmpText.text = app.DisplayName;
-
-            //Сюда передается имя процесса, которое можно использовать 
-
-
+            //-----------------------------------------------------------------------------------------
             /* // Иконка — если в InstalledApp хранится System.Drawing.Bitmap или byte[] PNG
              var iconImage = newToggleObj.transform.Find("Icon")?.GetComponent<UnityEngine.UI.Image>();
              if (iconImage != null && app.Icon != null)

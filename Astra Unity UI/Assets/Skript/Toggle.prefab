@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 6411482124981816776}
   - component: {fileID: 3415014546592240581}
   - component: {fileID: -6268702937914231976}
+  - component: {fileID: 4457324481557068723}
   m_Layer: 0
   m_Name: Toggle
   m_TagString: Untagged
@@ -267,7 +268,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -170, y: -60}
-  m_SizeDelta: {x: 200, y: 60}
+  m_SizeDelta: {x: 500, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3415014546592240581
 MonoBehaviour:
@@ -341,3 +342,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 437153087a564b747bcbc27158cfa011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OnToggleChanged
+  myToggle: {fileID: 3415014546592240581}
+--- !u!114 &4457324481557068723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8878683562801221699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72e5521a55e4c144b4f0d4c800b1262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IsToggleEnabledInConfig
+  myToggle: {fileID: 3415014546592240581}

@@ -19,22 +19,87 @@ public class UserInstalledAppsReader : MonoBehaviour
     {
         List<AppInfo> apps = GetUserInstalledApplications();
         Debug.Log($"Найдено программ текущего пользователя: {apps.Count}");
-        foreach (var app in apps)
-        {
-            Debug.Log($"[User App] {app.DisplayName} | Процесс: {app.ProcessName ?? "не угадано"} | Версия: {app.DisplayVersion}");
-        }
-
     }
+
+    //----------------------------------------------------------------
+
     public static List<AppInfo> GetUserInstalledApplications()
     {
         var apps = new List<AppInfo>();
         var seenNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
-        // Обращаемся ТОЛЬКО к ветке текущего пользователя
-        using (RegistryKey baseKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"))
-        //LocalMachine.OpenSubKey  
+        // 1) Программы, установленные только для текущего пользователя
+        ScanUninstallKey(Registry.CurrentUser, apps, seenNames);
+
+        // 2) Программы для всех пользователей, 64-бит ветка реестра
+        using (RegistryKey hklm64 = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64))
+        {
+            ScanUninstallKey(hklm64, apps, seenNames);
+        }
+
+        // 3) Программы для всех пользователей, 32-бит ветка (WOW6432Node)
+        using (RegistryKey hklm32 = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32))
+        {
+            ScanUninstallKey(hklm32, apps, seenNames);
+        }
+
+        // Сортировка по алфавиту
+        apps.Sort((a, b) => string.Compare(a.DisplayName, b.DisplayName, StringComparison.OrdinalIgnoreCase));
+        return apps;
+    }
+
+    // Ключевые слова, по которым отсеивается технический "мусор": рантаймы,
+    // редистрибутивы, драйверы и служебные компоненты — не то, чем пользователь
+    // реально "пользуется". Список можно дополнять под себя.
+    private static readonly string[] NoiseKeywords =
+    {
+        "redistributable",
+        "runtime",
+        "update for",
+        "security update",
+        "hotfix",
+        "driver",
+        " sdk",
+        "software development kit",
+        "maintenance service",
+        "language pack",
+        "visual c++",
+        "directx",
+        ".net framework",
+        ".net core",
+        ".net host",
+        ".net sdk",
+        "asp.net",
+        "webview2",
+        "edge update",
+        "physx",
+        "hd audio",
+        "usb driver",
+        "microsoft"
+    };
+
+    private static bool IsNoise(string displayName)
+    {
+        string lower = displayName.ToLowerInvariant();
+        foreach (var keyword in NoiseKeywords)
+        {
+            // .ToLowerInvariant() и тут тоже — чтобы регистр слова в списке
+            // не имел значения, как бы вы его ни вписали
+            if (lower.Contains(keyword.ToLowerInvariant())) return true;
+        }
+        return false;
+    }
+
+    //----------------------------------------------------------------
+
+    private static void ScanUninstallKey(RegistryKey hive, List<AppInfo> apps, HashSet<string> seenNames)
+    {
+
+
+
+        using (RegistryKey baseKey = hive.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"))
         { 
-            if (baseKey == null) return apps;
+            if (baseKey == null) return;
 
             foreach (string subkeyName in baseKey.GetSubKeyNames())
             {
@@ -53,6 +118,7 @@ public class UserInstalledAppsReader : MonoBehaviour
                     string uninstallString = subkey.GetValue("UninstallString") as string;
                     if (string.IsNullOrEmpty(uninstallString)) continue;
 
+                    if (IsNoise(displayName)) continue;
                     // Убираем дубликаты
                     if (seenNames.Contains(displayName)) continue;
                     seenNames.Add(displayName);
@@ -70,15 +136,11 @@ public class UserInstalledAppsReader : MonoBehaviour
                         DisplayName = displayName,
                         DisplayVersion = subkey.GetValue("DisplayVersion") as string ?? "Н/Д",
                         InstallLocation = installLocation,
-                        ProcessName = guessedProcessName   // ← новое поле заполняется
+                        ProcessName = guessedProcessName  
                     });
                 }
             }
         }
-
-        // Сортировка по алфавиту
-        apps.Sort((a, b) => string.Compare(a.DisplayName, b.DisplayName, StringComparison.OrdinalIgnoreCase));
-        return apps;
     }
 
     public static string GuessProcessName(string installLocation, string iconPath)
@@ -86,7 +148,6 @@ public class UserInstalledAppsReader : MonoBehaviour
         // Способ 1: DisplayIcon в реестре часто указывает прямо на exe
         if (!string.IsNullOrEmpty(iconPath))
         {
-            // DisplayIcon может выглядеть как "C:\...\app.exe,0" — отрезаем ",0"
             string cleanPath = iconPath.Split(',')[0].Trim();
 
             if (cleanPath.EndsWith(".exe", StringComparison.OrdinalIgnoreCase)
@@ -114,5 +175,4 @@ public class UserInstalledAppsReader : MonoBehaviour
         }
         return null; 
     }
-
 }
