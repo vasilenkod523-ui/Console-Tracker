@@ -43,11 +43,15 @@ public class IsToggleEnabledInConfig : MonoBehaviour
             return;
         if (!config.IsTrackingEnabled)
             return;
+        bool enabled = false;
         foreach (var entry in config.Applications)
         {
-            Debug.Log($"toggle.name='{myToggle.name}' | DisplayName='{entry.DisplayName}' | ProcessName='{entry.ProcessName}'");
             if (entry.DisplayName == myToggle.name || entry.ProcessName == myToggle.name)
-                myToggle.isOn = entry.IsEnabled;
+            {
+                enabled = entry.IsEnabled;
+                break;
+            }
         }
+        myToggle.SetIsOnWithoutNotify(enabled);
     }
 }

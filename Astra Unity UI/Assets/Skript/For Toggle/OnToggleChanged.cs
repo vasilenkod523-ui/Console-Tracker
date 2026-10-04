@@ -54,6 +54,8 @@ public class OnToggleChanged : MonoBehaviour
     public static void AddApplication(string displayName, string processName, bool isEnabled)
     {
         var config = LoadConfig();
+        config.Applications.RemoveAll(app =>
+            string.Equals(app.ProcessName, processName, System.StringComparison.OrdinalIgnoreCase));
         config.Applications.Add(new TrackedApplication
         {
             DisplayName = displayName,

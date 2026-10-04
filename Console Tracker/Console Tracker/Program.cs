@@ -103,7 +103,8 @@ namespace Console_Tracker
                         // Ищем совпадение: есть ли активный процесс среди включённых в config.json.
                         // Сравнение без учёта регистра, т.к. Windows не всегда даёт имена в одном регистре
                         var matchedApp = enabledApps.FirstOrDefault(a =>
-                            a.ProcessName.Equals(process.ProcessName, StringComparison.OrdinalIgnoreCase));
+                         !string.IsNullOrEmpty(a.ProcessName) &&
+                         a.ProcessName.Equals(process.ProcessName, StringComparison.OrdinalIgnoreCase));
 
                         if (matchedApp != null)
                         {
